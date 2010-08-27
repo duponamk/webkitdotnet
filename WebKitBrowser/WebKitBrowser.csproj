@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WebKit.Interop, Version=533.0.0.0, Culture=neutral, PublicKeyToken=b967213f6d29a3be, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\webkit\WebKit.Interop.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -117,7 +118,6 @@
     <None Include="..\WebKit.NET.snk">
       <Link>WebKit.NET.snk</Link>
     </None>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -154,7 +154,7 @@
     <PostBuildEvent>echo WebKitBrowser &gt; temp_exclude_files.txt
 xcopy /E /Y /EXCLUDE:temp_exclude_files.txt "$(SolutionDir)webkit\*" "$(SolutionDir)bin\$(ConfigurationName)"
 del temp_exclude_files.txt</PostBuildEvent>
-    <PreBuildEvent>call "$(DevEnvDir)..\..\VC\vcvarsall.bat" x86
-tlbimp "$(SolutionDir)webkit\webkit.tlb" /silent /keyfile:"$(SolutionDir)WebKit .NET.snk" /namespace:WebKit.Interop /out:"$(SolutionDir)webkit\WebKit.Interop.dll"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
